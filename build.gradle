@@ -1,0 +1,34 @@
+buildscript {
+    ext.kotlin_version = '1.2.40'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: "kotlin"
+apply plugin: "application"
+
+mainClassName = 'com.nguyendo.wfd.MainKt'
+
+defaultTasks 'run'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib"
+    compile "net.sourceforge.argparse4j:argparse4j:0.8.1"
+    compile 'com.google.cloud:google-cloud-texttospeech:0.50.0-beta'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "4.1"
+}
+
+
